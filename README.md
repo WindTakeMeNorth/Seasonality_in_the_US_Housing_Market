@@ -4,110 +4,100 @@ Supervisor: Dr. Cemil Selcuk
 University: University College London
 Year: 2024
 
-📌 Project Overview
-The U.S. housing market follows a predictable seasonal cycle. Prices and turnover rates peak in spring and summer (April–September), then decline in autumn and winter (October–March). These cycles are persistent, visible across regions, and challenge traditional microeconomic theory.
+🔍 Overview
+This study investigates the seasonal dynamics of the U.S. housing market using econometric time-series decomposition and cross-sectional geographical comparison. Each year, both prices and turnover rates rise significantly during the second and third quarters (April–September) and fall during the first and fourth quarters (October–March). These synchronized patterns defy traditional price-demand theory, which predicts an inverse relationship between price and volume.
 
-This project aims to empirically measure this seasonality, identify its geographical variation, and investigate the economic, political, cultural, and behavioral forces that sustain it. Surprisingly, prices and sales volumes often rise and fall together, which goes against the expected price-demand relationship. This “in-phase” movement raises questions about search frictions, asymmetric information, and behavioral biases in the housing market.
+The project:
 
-By applying time-series econometric tools and exploring the broader theoretical literature, this study offers both academic insight and practical implications for buyers, sellers, and policymakers.
+Validates the existence of seasonality using unadjusted monthly housing market data.
 
-📊 Objectives
-Establish seasonal trends in house prices and turnover across the U.S.
+Applies seasonal decomposition techniques to isolate trend, seasonal, and irregular components.
 
-Compare how these trends differ by region and time
+Implements formal statistical testing procedures to evaluate the statistical significance of seasonal effects.
 
-Explain the observed patterns using theoretical and empirical economic literature
+Provides theoretical interpretations for the "in-phase" movement of prices and transaction volumes.
 
-📁 Data Sources
-Federal Housing Financing Agency (FHFA): Monthly price index
+The findings offer practical implications for market participants and policymakers and provide new insights into the interaction of behavioral, institutional, and macroeconomic factors that shape real estate cycles.
 
-U.S. Census Bureau:
+🎯 Objectives
+Empirically verify the presence of seasonality in U.S. housing prices and turnover.
 
-Homes sold and for sale (since 1963–1973 by region)
+Identify and interpret regional heterogeneity in seasonal behavior.
+
+Theoretically analyze the joint movement of price and volume during seasonal cycles.
+
+Link observed patterns to factors such as school calendars, climate, elections, and cultural preferences.
+
+📂 Data Sources
+Federal Housing Finance Agency (FHFA)
+
+Monthly house price index (purchase-only, not seasonally adjusted)
+
+U.S. Census Bureau
+
+Number of new single-family houses sold and for sale (monthly, from 1963; regional data from 1973)
 
 Median and average sale prices
 
-Construction stages
+Sales by construction stage
 
-Financing types
+Sale prices by region and type of financing
 
+Note: Turnover rate is computed as the monthly ratio of houses sold to those listed for sale.
 
-🧪 Methodology
-Seasonal Extraction
+🧠 Methodology
+1. Seasonal Decomposition
+X-13ARIMA-SEATS: Extracts deterministic seasonal factors from raw time series
 
-X-13 ARIMA-SEATS decomposition
+STL decomposition: Applied for robustness check across disaggregated series
 
-Formal Seasonality Tests
+2. Formal Tests for Seasonality
+F-Test: Tests equality of monthly means under ANOVA framework
 
-Parametric F-Test
+Kruskal–Wallis Test: Non-parametric alternative to the F-test
 
-Kruskal–Wallis Test (non-parametric)
+Moving Seasonality Test: Evaluates seasonal stability using a two-way ANOVA
 
-Moving Seasonality Test (Two-way ANOVA)
+Chow Test: Detects structural breaks between seasonal regimes
 
-Chow Test: Detects structural breaks across seasons
+3. Cross-Sectional Analysis
+Inter-regional comparison of seasonal amplitudes using normalized indices
 
-Visualization
+Evaluation of market cyclicality conditional on climate zones, school calendars, and electoral cycles
 
-Line plots, vector plots, and geographical comparisons
+🧾 Economic Interpretations
+The observed “in-phase” movement of prices and volume is explained using several theoretical channels:
 
-🧠 Economic Rationale
-“Prices rise when demand increases. But why do prices and sales rise together?”
-— A paradox tackled in Hot and Cold Markets (Novy-Marx, 2009)
-
-Supporting Theories
 Search Frictions
 
-Turnover accelerates in hot seasons due to greater market liquidity
-
-Housing search models (Wheaton, 1990) explain timing dynamics
+Search-theoretic models (Wheaton, 1990) show faster matching in high-liquidity periods, amplifying turnover.
 
 Information Asymmetry
 
-Sellers strategically list homes to maximize returns during high-visibility periods
+Sellers time listings to periods of heightened buyer competition (Hendel & Nevo, 2013), shifting the price-volume frontier.
 
-(Hendel & Nevo, 2013)
+Behavioral Anchoring
 
-Behavioral Economics
+Buyers use seasonal price expectations as reference points (Genesove & Mayer, 2001), reinforcing cyclical valuation norms.
 
-Buyers anchor expectations on seasonal norms (Genesove & Mayer, 2001)
+These effects interact with macro-level uncertainty, electoral cycles (Klok & Bond, 2024), school-year preferences (Fack & Grenet, 2010), and climate seasonality (Valadkhani et al., 2016).
 
-📚 Literature Highlights
-Core:
+🧰 Tools & Environment
+Statistical Languages: R
 
-Novy-Marx (2009) – Hot and Cold Markets
+Packages Used: seasonal, forecast, zoo, stats, car, ggplot2, dplyr
 
-Search Models & Frictions:
+Software: EViews (for X-13ARIMA-SEATS backend), RStudio
 
-Wheaton (1990) – Vacancy, Search, and Prices
+📌 Key Results
+Strong seasonal signals confirmed across all variables (prices, volume, turnover)
 
-Strategic Listings & Information Gaps:
+Statistically significant differences in seasonal patterns across U.S. regions
 
-Hendel & Nevo (2013) – Intertemporal Price Discrimination in Housing
+Confirmed presence of countercyclical structural breaks via Chow Tests
 
-Anchoring Behavior:
+Evidence supports the hypothesis that synchronized seasonal cycles reflect institutional and behavioral dynamics, not classical equilibrium pricing
 
-Genesove & Mayer (2001) – Loss Aversion and Seller Behavior
-
-Broader Influences:
-
-Akerlof & Shiller (2010) – Animal Spirits
-
-Klok & Bond (2024) – U.S. Elections and House Prices
-
-Fack & Grenet (2010) – School Quality and Home Value
-
-Full reference list in the thesis 📎
-
-🔧 Tech Stack
-Languages: R, Python
-
-Tools: EViews, Excel
-
-Techniques: Time-series modeling, regression, ANOVA
-
-
-📩 Contact
-For questions or collaborations:
-📧 yihan.hu.22@ucl.ac.uk
-📍 London, UK
+📫 Contact
+Email: yihan.hu.22@ucl.ac.uk
+Location: London, United Kingdom
